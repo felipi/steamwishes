@@ -26,8 +26,32 @@ swishes.filter("sanitize", ['$sce', function($sce) {
   }
 }]);
 
-swishes.controller('mainController', function($scope, $rootScope) {
+swishes.config(['$httpProvider', function($httpProvider) {
+        $httpProvider.defaults.useXDomain = true;
+        delete $httpProvider.defaults.headers.common['X-Requested-With'];
+    }
+]);
+
+swishes.controller('homeController', function($scope, $rootScope) {
     $scope.title = "Steam Wishes";
+});
+
+swishes.controller('listController', function($scope, $routeParams, $rootScope, $http) {
+    $scope.title = "Steam Wishes - Wishlist";
+    $scope.listUser = $routeParams.userid;
+    
+    //var listurl = "http://steamcommunity.com/id/"+$scope.listUser+"/wishlist";
+    var listurl = "http://steamcommunity.com/profiles/76561198025323372/wishlist";
+    $http.get(listurl)
+    .then(function success(response){
+        console.log(response);
+    },function error(response){
+        console.log(response);
+    }); 
+    
+});
+swishes.controller('manageController', function($scope, $rootScope) {
+    $scope.title = "Steam Wishes - Manage";
 });
 
 /*Exemplo de Controller*/
@@ -64,7 +88,15 @@ swishes.config(function($routeProvider, $locationProvider){
     $routeProvider
     .when("/", {
         templateUrl: "angular/pages/home.html",
-        controller: "mainController"
+        controller: "homeController"
+    })
+    .when("/list/:userid", {
+        templateUrl: "angular/pages/list.html",
+        controller: "listController"
+    })
+    .when("/manage", {
+        templateUrl: "angular/pages/manage.html",
+        controller: "manageController"
     })
     //.otherwise({ redirectTo: '/' });
 

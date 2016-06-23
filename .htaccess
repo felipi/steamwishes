@@ -1,0 +1,34 @@
+<IfModule  mod_rewrite.c>
+RewriteEngine on
+
+#RewriteCond %{HTTP_HOST} ^uzzye.com [NC]
+#RewriteRule (.*) http://www.uzzye.com [L,R=301]
+#/$1
+
+RewriteCond %{REQUEST_FILENAME} -f [OR]
+RewriteCond %{REQUEST_FILENAME} -d
+RewriteRule ^ - [L]
+# Rewrite everything else to index.html to allow html5 state links
+RewriteRule ^ index.html [L]
+
+## ---------------------------------------------------------------
+ErrorDocument 500 /500.html
+## ---------------------------------------------------------------
+
+## ---------------------------------------------------------------
+ErrorDocument 404 /404.html
+## ---------------------------------------------------------------
+</IfModule>
+
+<IfModule !mod_rewrite.c>
+## ---------------------------------------------------------------
+ErrorDocument 500 /500.html
+## ---------------------------------------------------------------
+
+## ---------------------------------------------------------------
+ErrorDocument 404 /404.html
+## ---------------------------------------------------------------
+</IfModule>
+
+
+
