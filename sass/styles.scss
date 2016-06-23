@@ -1,0 +1,33 @@
+$grid-gutter-width: 26px;
+@import "compass/css3/font-face";
+//bower:scss
+@import "../bower_components/bootstrap-sass/assets/stylesheets/_bootstrap.scss";
+//endbower
+
+//Font stack
+@include font-face("PTSans-Regular", font-files("PTSans-Regular.woff", "PTSans-Regular.ttf", "PTSans-Regular.svg"), "PTSans-Regular.eot");
+@include font-face('Glyphicons Halflings', font-files("glyphicons-halflings-regular.woff", "glyphicons-halflings-regular.ttf", "glyphicons-halflings-regular.svg"), "glyphicons-halflings-regular.eot");
+
+$mainColor: #1F284C;
+$darkerColor: #1d2a4c;
+$lighterColor: #5ba4ae;
+
+* {
+    font-family: "PTSans-Regular", sans-serif;
+    font-size: 12pt;
+    color: $mainColor;
+} 
+
+.showOnLoad {
+    opacity: 0.0;*filter: alpha(opacity = 0); -ms-filter: "progid:DXImageTransform.Microsoft.Alpha(Opacity=0)";
+}
+
+[ng\:cloak], [ng-cloak], [data-ng-cloak], [x-ng-cloak], .ng-cloak, .x-ng-cloak {
+  display: none !important;
+}
+
+textarea {
+    resize: none;
+}
+
+@import "home";

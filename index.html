@@ -1,0 +1,66 @@
+<!DOCTYPE html PUBLIC "-//W3C//DTD XHTML 1.0 Transitional//EN" "http://www.w3.org/TR/xhtml1/DTD/xhtml1-transitional.dtd">
+<html xmlns="http://www.w3.org/1999/xhtml"
+      xmlns:og="http://ogp.me/ns#"
+      xmlns:fb="http://www.facebook.com/2008/fbml"
+      ng-app="swishes">
+<head prefix="og: http://ogp.me/ns#">
+<title>SteamWishes</title>
+<!-- CSS -->
+<meta http-equiv="Content-Type" content="text/html; charset=utf-8" />
+<link rel="stylesheet" type="text/css" href="css/styles.css" />
+<!-- MetaTags -->
+<base href="/steamwishes/index.html">
+<!-- MetaTags -->
+<meta name="viewport" content="width=device-width, initial-scale=1, minimum-scale=1, maximum-scale=1.5" />
+<meta name="apple-mobile-web-app-capable" content="yes" /> 
+<meta http-equiv="pragma" content="no-cache" /> 
+<meta name="resource-types" content="document" /> 
+<meta name="classification" content="Internet" /> 
+<meta name="robots" content="ALL" /> 
+<meta name="distribution" content="Global" /> 
+<meta name="rating" content="General" /> 
+<meta name="author" content="Uzzye" /> 
+<!-- JavaScript -->
+<!-- bower:js -->
+<script src="bower_components/angular/angular.js"></script>
+<script src="bower_components/jquery/dist/jquery.js"></script>
+<script src="bower_components/bootstrap-sass/assets/javascripts/bootstrap.js"></script>
+<script src="bower_components/angular-bootstrap/ui-bootstrap-tpls.js"></script>
+<script src="bower_components/angular-route/angular-route.js"></script>
+<script src="bower_components/angular-touch/angular-touch.js"></script>
+<script src="bower_components/angular-animate/angular-animate.js"></script>
+<script src="bower_components/angular-update-meta/dist/update-meta.js"></script>
+<script src="bower_components/jquery-selectric/public/jquery.selectric.js"></script>
+<script src="bower_components/flipsnap/flipsnap.js"></script>
+<script src="bower_components/angular-filter/dist/angular-filter.min.js"></script>
+<!-- endbower -->
+<!-- bower:css -->
+<link rel="stylesheet" href="bower_components/jquery-selectric/public/selectric.css" />
+<!-- endbower -->
+</head>
+<body ng-controller="mainController" ng-cloak>
+<div class="page">
+<!--PAGE-->
+    <div class="geral">
+        <script type="text/javascript" src="angular/app.js"></script>
+        <script type="text/javascript">
+        $(document).ready(function() {
+        });
+        </script>
+
+        <update-title title="{{$root.pageTitle}}"></update-title>
+        <update-meta charset=""></update-meta>
+        <update-meta http-equiv="Content-Language" content=""></update-meta>
+        <update-meta name="description" content=""></update-meta>
+        <update-meta property="og:title" content=""></update-meta>
+        <update-meta itemprop="description" content=""></update-meta>
+        <div id="main-area">
+            <div ng-view autoscroll></div>
+        </div>
+    </div>
+<!--BASE RODAPE-->
+    <section id="rodape">
+    </section>
+</div>
+</body>
+</html>
