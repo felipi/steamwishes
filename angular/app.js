@@ -41,10 +41,12 @@ swishes.controller('listController', function($scope, $routeParams, $rootScope, 
     $scope.listUser = $routeParams.userid;
     
     //var listurl = "http://steamcommunity.com/id/"+$scope.listUser+"/wishlist";
-    var listurl = "http://steamcommunity.com/profiles/76561198025323372/wishlist";
+    //var listurl = "http://steamcommunity.com/profiles/76561198025323372/wishlist";
+    var listurl = "/steam/"+$scope.listUser;
     $http.get(listurl)
     .then(function success(response){
-        console.log(response);
+        //console.log(response.data);
+        $scope.title = response.data;
     },function error(response){
         console.log(response);
     }); 
